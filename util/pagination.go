@@ -66,7 +66,11 @@ func Paging(page int64, limit int64, count int64) *Paginator {
 		page = 1
 	}
 	if limit == 0 {
-		limit = count
+		if count == 0 {
+			limit = 1
+		} else {
+			limit = count
+		}
 	}
 
 	if page > 0 {
